@@ -81,6 +81,7 @@ list_path *linkpath(char *path)
 
 	char *cpath = _strdup(path);
 	token = strtok(cpath, ":");
+
 	while (token)
 	{
 		head = add_node_end(&head, token);
@@ -100,6 +101,7 @@ char *_which(char *filename, list_path *head)
 	char *string;
 
 	list_path *tmp = head;
+
 	while (tmp)
 	{
 		string = concat_all(tmp->dir, "/", filename);
