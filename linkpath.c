@@ -80,8 +80,8 @@ list_path *linkpath(char *path)
 	char *token;
 
 	char *cpath = _strdup(path);
-	token = strtok(cpath, ":");
 
+	token = strtok(cpath, ":");
 	while (token)
 	{
 		head = add_node_end(&head, token);
