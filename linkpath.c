@@ -8,6 +8,7 @@ char *_getenv(const char *name)
 {
 	int i, j;
 	char *value;
+
 	if (!name)
 		return (NULL);
 	for (i = 0; environ[i]; i++)
@@ -77,6 +78,7 @@ list_path *linkpath(char *path)
 {
 	list_path *head = '\0';
 	char *token;
+
 	char *cpath = _strdup(path);
 	token = strtok(cpath, ":");
 	while (token)
@@ -96,6 +98,7 @@ char *_which(char *filename, list_path *head)
 {
 	struct stat st;
 	char *string;
+
 	list_path *tmp = head;
 	while (tmp)
 	{
@@ -105,7 +108,7 @@ char *_which(char *filename, list_path *head)
 			return (string);
 		}
 		free(string);
-    	tmp = tmp->p;
+		tmp = tmp->p;
 	}
 	return (NULL);
 }
@@ -116,11 +119,12 @@ char *_which(char *filename, list_path *head)
 void free_list(list_path *head)
 {
 	list_path *storage;
+
 	while (head)
 	{
 		storage = head->p;
 		free(head->dir);
 		free(head);
 		head = storage;
-    }
+	}
 }
